@@ -24,13 +24,13 @@ From running our demo,following packages are required
 
 #### Test ISONet_Uncompressed
 
-Run `python test_model.py --model_path models/net_tif.pth --pic_path image_path  ` 
-or 
+Run `python test_model.py --model_path models/net_tif.pth --pic_path image_path  `  
+or   
 Run Fig3.py to repeat the ISO metric map used for Fig.3
 
 #### Test ISONet_JPEG
-Run`python test_model.py --model_path models/net_jpg.pth --pic_path image_path ` 
-or 
+Run`python test_model.py --model_path models/net_jpg.pth --pic_path image_path `  
+or  
 Run Fig5.py to repeat the global ISO metric used for Fig.5
 
 ### Train ISONet
