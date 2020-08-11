@@ -43,4 +43,9 @@ Take ISONet_Uncompressed for example
    `python prepare_data.py --aug_times 3 --pic_type tif --data_path IMG_DATA_DIR --save_path DATA_PATH`
 
 3. Run `main_train.py` to train the model
- `python main_train.py --data_path DATA_PATH`
+ `python main_train.py --data_path DATA_PATH`  
+ 
+ 
+### About the author
+Most of the codes are provided by Kang Deng, admin@maxlv.org
+ 
