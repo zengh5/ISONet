@@ -1,4 +1,4 @@
-# This code is to estimate the global ISO metric from a forged image shown in Fig.5 (b)
+# This code is to estimate the global ISO metric from a forged image shown in Fig.7 (b)
 # The estimated ISO metric can be used to choose the correlation predictor for PRNU-based tampering localization
 import argparse
 import time
