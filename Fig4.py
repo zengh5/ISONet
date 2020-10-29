@@ -1,5 +1,6 @@
-# This code is to estimate the local ISO metrics from a forged image shown in Fig.3
+# This code is to estimate the local ISO metrics from a forged image shown in Fig.4
 # The estimated ISO metric map provides meaningful clue for image splicing localization
+# Note: this method is not robust to JPEG compression after image splicing. 
 import argparse
 import time
 
