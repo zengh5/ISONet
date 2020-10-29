@@ -72,20 +72,20 @@ def gen_data(args):
                 if gray_mode:
                     # H * W * C
                     t_pic = cv2.imread(f, cv2.IMREAD_GRAYSCALE)
+                    t_pic = np.expand_dims(t_pic, 0)
                 else:
                     t_pic = cv2.imread(f, cv2.IMREAD_COLOR)
-
-                # BRG -> RGB
-                t_pic = t_pic[:, :, ::-1]
-                # HWC -> CHW
-                t_pic = np.transpose(t_pic, (2, 0, 1))
+                    # BRG -> RGB
+                    t_pic = t_pic[:, :, ::-1]
+                    # HWC -> CHW
+                    t_pic = np.transpose(t_pic, (2, 0, 1))
 
                 t_pic = normalize(t_pic)
                 # CHW * patch_size
                 patches = img_2_patches(t_pic, size, stride)
 
-                # Control the maximum sample from a single image
-                patches = patches[:, :, :, :2400]
+                # Control the maximum sample from a single image, change it according to your dataset
+                patches = patches[:, :, :, :1064]
                 # dealing with every patch
                 print(f"training file:{f} --> ##{patches.shape[3]}##sample")
                 for nx in range(patches.shape[3]):
@@ -119,13 +119,13 @@ def gen_data(args):
                 if gray_mode:
                     # H * W * C
                     t_pic = cv2.imread(f, cv2.IMREAD_GRAYSCALE)
+                    t_pic = np.expand_dims(t_pic, 0)
                 else:
                     t_pic = cv2.imread(f, cv2.IMREAD_COLOR)
-
-                # BRG -> RGB
-                t_pic = t_pic[:, :, ::-1]
-                # HWC -> CHW
-                t_pic = np.transpose(t_pic, (2, 0, 1))
+                    # BRG -> RGB
+                    t_pic = t_pic[:, :, ::-1]
+                    # HWC -> CHW
+                    t_pic = np.transpose(t_pic, (2, 0, 1))
 
                 t_pic = normalize(t_pic)
                 # CHW * patch_size
@@ -149,13 +149,13 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--train", type=bool, default=True, help="whether to generate the training set")
     parser.add_argument("--test", type=bool, default=True, help="whether to generate the validation set")
-    parser.add_argument("--stride", type=int, default=64, help="stride")
-    parser.add_argument("--aug_times", type=int, default=0, help="aug_times")
+    parser.add_argument("--stride", type=int, default=96, help="stride")
+    parser.add_argument("--aug_times", type=int, default=2, help="aug_times")
     parser.add_argument("--gray_mode", type=bool, default=False, help="gray_or_RGB")
     parser.add_argument("--size", type=int, default=64, help="patch_size")
     parser.add_argument("--pic_type", type=str, default="tif", help="pic_type")
     parser.add_argument("--data_path", type=str, default="isonet_tif", help="directory of the training images")
-    parser.add_argument("--save_path", type=str, default="data_64_64_aug3",
+    parser.add_argument("--save_path", type=str, default="data_64_96_aug2",
                         help="where to store the generated training and validation set")
 
     args = parser.parse_args()
