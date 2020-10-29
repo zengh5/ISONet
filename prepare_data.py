@@ -64,7 +64,6 @@ def gen_data(args):
         # k->label v->filename list
         for k, v in files_train.items():
             print(k)
-            print(v)
             if len(v) == 0:
                 continue
             # load a full size image
@@ -111,7 +110,6 @@ def gen_data(args):
         val_num = 0
         for k, v in files_test.items():
             print(k)
-            print(v)
             if len(v) == 0:
                 continue
             # load full size image
