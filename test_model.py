@@ -75,7 +75,7 @@ def test_model(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_path", type=str, help="model_path")
-    parser.add_argument("--pic_path", type=str, help="model_path")
+    parser.add_argument("--pic_path", type=str, help="pic_path")
     parser.add_argument("--checkpoint", action='store_true', help="Is checkpoint or not")
 
     args = parser.parse_args()
